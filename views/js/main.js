@@ -438,9 +438,10 @@ var resizePizzas = function(size) {
       default:
         console.log("bug in changePizzaSizes()");
     }
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
+    var numberOfPizzas = randomPizzas.length;
 
-    for (var i = 0; i < randomPizzas.length; i++) {
+    for (var i = 0; i < numberOfPizzas; i++) {
       randomPizzas[i].style.width = newWidth + "%";
     }
   }
@@ -490,7 +491,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   var docTop = document.body.scrollTop;
 
   for (var i = 0; i < items.length; i++) {
@@ -512,10 +513,26 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = 8;
-  var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+// Current max 4K Screen Resolution is 4096x2160
+// assume multiple monitors not in use
+// Bootstrap max width in use is 1200px wide
+// So limiting this website to Bootstrap width and 4K monitor height
+  var maxScreenHorizontal = 1200;
+  var maxScreenVertical = 2160;
+
+  var s = 256;  //spacing between moving pizzas
+
+//Calculate the number of rows/columns required to cover area
+  var cols = Math.ceil(maxScreenHorizontal / s) + 1;
+  var rows = Math.ceil(maxScreenVertical / s) + 1;
+  var pizzaCount = rows * cols;
+
+  for (var i = 0; i < pizzaCount; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -523,6 +540,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
+    console.log('#'+ i + ';' + elem.basicLeft + ';' + elem.style.top + ';');
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
