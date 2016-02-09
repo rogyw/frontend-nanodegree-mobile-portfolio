@@ -1,7 +1,8 @@
 ## Website Performance Optimization portfolio project
 
 This repository contains Roger Woodroofe's completed Project 4 for the Udacity Front End Nanodegree.
-The challenge was to optimize the provided online portfolio for speed. In particular, to optimize the critical rendering path and make the index.html page render as quickly as possible by applying the techniques picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
+
+The project challenge was to optimize the provided online portfolio for speed. In particular, to optimize the critical rendering path and make the index.html page render as quickly as possible by applying the techniques picked up in the [Udacity Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 ### Getting started
 
@@ -14,25 +15,24 @@ To view the live version of this project:
 1. To view the results in Google PageSpeed insights, open a browser and visit https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Frogyw.navevent.co.nz%2Ffrontend-nanodegree-mobile-portfolio%2F
 
 Please refer to [Forum Post](https://discussions.udacity.com/t/optimized-portfolios-all-cohorts/949/14?u=rogyw) for steps taken.
-For additional information, you can check the changes made by Rogyw in the [Github Repository log](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio/commits/master)
+
+For additional information, you can also view the changes made by Rogyw in the [Github Repository log](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio/commits/master)
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
 views/pizza.html was optimized by modifying views/js/main.js until the frames per second rate is 60 fps or higher. Instructive comments were provided in main.js.
 
-##### Javascript modifications to views/js/main.js
-1. Removed Forced Synchronous Layout in javascript loops by batching reads and then batching style changes.
-1. Simplified code to reduce complexity of calculations
-1. Changed the method of selecting elements in DOM from querySelectorAll() to getElementsByClassName()
-1. Reduced number of sliding pizza's based on anticipated maximum page resolution
+##### Javascript modifications made to views/js/main.js
+Roger made the following changes:
+
+1. Changed code loops to remove instances of "Forced Synchronous Layout" by batching DOM read operations and then batching style changes - Avoids thrashing.
+1. Simplified code to reduce complexity of calculations.
+1. Changed the method of selecting elements in DOM from querySelectorAll() to getElementsByClassName().
+1. Reduced number of sliding pizza's from 200 down to  based on anticipated maximum page resolution
 1. Moved sliding pizzas to own layer in CSS
-1. added comments to code
+1. added comments to code and updated README
 
-
-
-
-
-### Optimization Tips and Tricks
+### Provided Reference Links: Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
 * [Analyzing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-crp.html "analyzing crp")
 * [Optimizing the Critical Rendering Path](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/optimizing-critical-rendering-path.html "optimize the crp!")
