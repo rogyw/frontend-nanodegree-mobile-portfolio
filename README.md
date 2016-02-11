@@ -67,7 +67,11 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-## Contacts
-Udacity - see [website](https://www.udacity.com/)
 
-Roger Woodroofe, through [GitHub](https://github.com/rogyw) or email [rogyw@yahoo.co.nz](mailto:rogyw@yahoo.co.nz)
+## Contacts
+
+###Udacity
+[Udacity website](https://www.udacity.com/)
+
+###Roger Woodroofe
+Contact Roger Woodroofe through [GitHub](https://github.com/rogyw) or email [rogyw@yahoo.co.nz](mailto:rogyw@yahoo.co.nz)
