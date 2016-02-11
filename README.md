@@ -4,7 +4,7 @@ This repository contains Roger Woodroofe's completed Project 4 for the Udacity F
 
 The project challenge was to optimize the provided online portfolio for speed. In particular, to optimize the critical rendering path and make the index.html page render as quickly as possible by applying the techniques picked up in the [Udacity Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
-In addition, Roger took the oportunity to learn web tooling and automation through the use of gulp.js automation configuration.
+In addition, Roger took the oportunity to learn and practice web tooling and automation through the use of gulp.js automation configuration.
 
 ### Getting started
 
@@ -20,18 +20,19 @@ Please refer to [Forum Post](https://discussions.udacity.com/t/optimized-portfol
 
 For additional information, you can also view the changes made by Rogyw in the [Github Repository log](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio/commits/master).
 
-On completion, and prior to submission, gulp.js automation configuration file gulpfile.js was added to assit with optimisations and gh-pages deployment.
+On completion, and prior to submission, gulp.js automation configuration file gulpfile.js was added to assist with optimisations and gh-pages deployment.
 
 ##### Using Gulp build tool with this project
+
 1. Fork the [repository](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio.git) on GitHub.
 1. Use git to copy/clone your new repository to your local system.
 1. Install [npm](https://docs.npmjs.com/getting-started/installing-node) if not already in use.
-1. install [gulp.js](http://gulpjs.com/) if not already in use.
-1. install all gulp packages used by project.
+1. Install [gulp.js](http://gulpjs.com/) if not already in use.
+1. Install all gulp packages used by project.
 ``` npm install --save-dev gulp-cssnano gulp-autoprefixer gulp-gh-pages gulp-uglify gulp-imagemin gulp-htmlmin run-sequence del```
-1. open your local console and change the current directory to the projects root folder.
-1. To delete the optimised dist folder and rebuild based on source use `gulp rebuild`
-1. To deploy the dist folder to your live gh-pages for the repostitory on Github use `gulp deploy`
+1. Open your local console and change the current directory to the project root folder (and location of gulpfile.js). The subfolder `dist` contains the automatically generated optimised files.
+1. To refresh the contents of `dist` folder use `gulp rebuild`.  the rebuild will delete the old dist folder and rebuild based on current source files.
+1. To deploy the contents of `dist` folder to your live `gh-pages` for the repostitory on Github use `gulp deploy`
 1. Test it worked!
 
 ####Part 2: Optimize Frames per Second in pizza.html
