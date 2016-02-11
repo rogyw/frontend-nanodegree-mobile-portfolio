@@ -2,8 +2,10 @@
  * refer to readme.md for details
  *
  * references:
- * Udacity Web Tooling & Automation course https://www.udacity.com/course/viewer#!/c-ud892
- * https://www.npmjs.com/ for each package
+ * Udacity Web Tooling & Automation course (lesson 1 & 2)
+ * https://www.udacity.com/course/viewer#!/c-ud892
+ * Docs for each package
+ * https://www.npmjs.com/
  */
 
 /* Specify Gulp Packages used
@@ -90,7 +92,7 @@ gulp.task('extras', function(){
  * reference: https://css-tricks.com/gulp-for-beginners/
  */
 gulp.task('clean:output', function(){
-  return del.sync([paths.output + '**', '!' + paths.output])
+  return del.sync([paths.output + '**'])
 });
 
 /* Carry out all tasks to clear and build output folder - rebuild
