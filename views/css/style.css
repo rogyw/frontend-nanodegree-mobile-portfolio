@@ -42,8 +42,10 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
-  /* Desktop GPU performance increase */
-  /* note: may impact some lower power mobile devices */
+  /* Desktop GPU performance increase
+     note: may impact some lower power mobile devices
+     (thanks to Udacity Reviewer #1) http://blog.teamtreehouse.com/increase-your-sites-performance-with-hardware-accelerated-css
+  */
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
