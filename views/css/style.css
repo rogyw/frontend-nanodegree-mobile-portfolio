@@ -3,10 +3,13 @@
  *
  */
 
+
 /*
 {
   outline: 1px solid red !important;
-}*/
+}
+*/
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -39,7 +42,13 @@ form {
   position: fixed;
   width: 256px;
   z-index: -1;
+  /* Desktop GPU performance increase */
+  /* note: may impact some lower power mobile devices */
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 }
 
 .randomPizzaContainer {
@@ -50,9 +59,9 @@ form {
 .randomPizzaContainer:after {
   content: "";
   display: table;
-  clear:both;
+  clear: both;
 }
 
- .container {
+.container {
   background-color: rgba(240, 60, 60, 0.8);
 }
