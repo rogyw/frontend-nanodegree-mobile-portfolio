@@ -587,6 +587,7 @@ function resizePizzas(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
+// selector for randomPizzas (outside of loop to minimise overhead)
 var pizzasDiv = document.getElementById("randomPizzas");
 
 // This for-loop creates and appends all of the pizza types when the page loads
@@ -665,20 +666,16 @@ window.addEventListener('scroll', updatePositions);
 //Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
 
-  // Establish how many moving pizzas to display
-  // Current maximum screen resolution is 4K (4096x2160)
-  // Assume multiple monitors not in use
-  // Bootstrap max width in use in CSS is 1200px wide
-  // So limiting this page to Bootstrap width and 4K monitor height
-  var maxScreenHorizontal = 1200;
-  var maxScreenVertical = 2160;
+  // Establish how many moving background pizzas to display
+  var screenSize = getScreenSize();
 
   var s = 256; //spacing between moving pizzas
 
   //Calculate the number of rows/columns required to cover area
-  var cols = Math.ceil(maxScreenHorizontal / s) + 1;
-  var rows = Math.ceil(maxScreenVertical / s);
+  var cols = Math.ceil(screenSize.width / s) + 1;
+  var rows = Math.ceil(screenSize.height / s);
   var pizzaCount = rows * cols;
+  console.log("Background Pizza's cols = " + cols + " and rows = " + rows + " total = " + pizzaCount);
 
   // create and add each sliding pizza to the page
   for (var i = 0; i < pizzaCount; i++) {
@@ -694,3 +691,49 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updatePositions();
 });
+
+
+/**
+ * @desc returns the current max width and height of screen or window
+ * @returns {object} screen
+ *   @returns {integer} screen.width
+ *   @returns {integer} screen.height
+ */
+function getScreenSize() {
+
+  // reference: Udacity reviewer #1 suggested replacing estimation approach with window.screen.width
+  // Solution assumes only one screen used to display content
+  // TODO: resizing of browser to multiple screens post load would require recalculation
+
+  // Get the current screen size
+  var maxScreenHorizontal = window.screen.width;
+  var maxScreenVertical = window.screen.height;
+
+  // increase dimensions to square to handle case of switching Portait/Landcape without refresh
+  if (maxScreenHorizontal < maxScreenVertical) {
+    maxScreenHorizontal = maxScreenVertical;
+  }
+  if (maxScreenVertical < maxScreenHorizontal) {
+    maxScreenVertical = maxScreenHorizontal;
+  }
+
+  // check for case of browser currently open over multiple screens
+  var currentWidth = window.outerWidth;
+  var currentHeight = window.outerHeight;
+
+  // if required, increase dimensions for multiple screen case
+  // Portait/Landscape switching not required
+  if (maxScreenHorizontal < currentWidth) {
+    maxScreenHorizontal = currentWidth;
+  }
+  if (maxScreenVertical < currentHeight) {
+    maxScreenVertical = currentHeight;
+  }
+
+  //Build return object value
+  var screenSize = {
+    'width': maxScreenHorizontal,
+    'height': maxScreenVertical
+  };
+  return screenSize;
+}
