@@ -35,6 +35,15 @@ On completion, and prior to submission, gulp.js automation configuration file gu
 1. To deploy the contents of `dist` folder to your live `gh-pages` for the repostitory on Github use `gulp deploy`
 1. Test it worked!
 
+##### Optimisations completed by Gulp
+gulp-cssnano - minify CSS files
+gulp-autoprefixer - auto-prefix CSS
+gulp-gh-pages - upload to gh-pages
+gulp-uglify  - minfy javascript files
+gulp-imagemin - reduce image sizes
+gulp-htmlmin  - minify html files
+run-sequence, del - used for project building
+
 ####Part 2: Optimize Frames per Second in pizza.html
 
 views/pizza.html was optimized by modifying views/js/main.js until the frames per second rate is 60 fps or higher. Instructive comments were provided in main.js.
@@ -44,8 +53,8 @@ Roger made the following changes:
 
 1. Changed code loops to remove instances of "Forced Synchronous Layout" by batching DOM read operations and then batching style changes - Avoids thrashing.
 1. Simplified code to reduce complexity of calculations.
-1. Changed the method of selecting elements in DOM from querySelectorAll() to getElementsByClassName().
-1. Reduced number of sliding pizza's from 200 down to  based on anticipated maximum page resolution
+1. Changed the method of selecting elements in DOM from querySelectorAll() to getElementsByClassName() and querySelector to getElementById.
+1. Reduced number of sliding pizza's from 200 down to a calculated value based on anticipated maximum page resolution and screen size. Also checks if window initially covers multiple screens.
 1. Moved sliding pizzas to own layer in CSS
 1. added comments to code and updated README
 
@@ -67,7 +76,11 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
-## Contacts
-Udacity - see [website](https://www.udacity.com/)
 
-Roger Woodroofe, through [GitHub](https://github.com/rogyw) or email [rogyw@yahoo.co.nz](mailto:rogyw@yahoo.co.nz)
+## Contacts
+
+###Udacity
+[Udacity website](https://www.udacity.com/)
+
+###Roger Woodroofe
+Contact Roger Woodroofe through [GitHub](https://github.com/rogyw) or email [rogyw@yahoo.co.nz](mailto:rogyw@yahoo.co.nz)
