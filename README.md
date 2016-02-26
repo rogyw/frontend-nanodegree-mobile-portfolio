@@ -12,19 +12,19 @@ In addition, Roger took the oportunity to learn and practice web tooling and aut
 
 To view the live version of this project:
 
-1. Open a browser and visit http://rogyw.navevent.co.nz/frontend-nanodegree-mobile-portfolio/
+1. Open a browser and visit http://rogyw.navevent.co.nz/ufend-P4-optimisation/
 
-1. To view the results in Google PageSpeed insights, open a browser and visit https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Frogyw.navevent.co.nz%2Ffrontend-nanodegree-mobile-portfolio%2F
+1. To view the results in Google PageSpeed insights, open a browser and visit https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Frogyw.navevent.co.nz%2Fufend-P4-optimisation%2F
 
 Please refer to [Forum Post](https://discussions.udacity.com/t/optimized-portfolios-all-cohorts/949/14?u=rogyw) for steps taken to optimize index.html.
 
-For additional information, you can also view the changes made by Rogyw in the [Github Repository log](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio/commits/master).
+For additional information, you can also view the changes made by Rogyw in the [Github Repository log](https://github.com/rogyw/ufend-P4-optimisation/commits/master).
 
 On completion, and prior to submission, gulp.js automation configuration file gulpfile.js was added to assist with optimisations and gh-pages deployment.
 
 ##### Using Gulp build tool with this project
 
-1. Fork the [repository](https://github.com/rogyw/frontend-nanodegree-mobile-portfolio.git) on GitHub.
+1. Fork the [repository](https://github.com/rogyw/ufend-P4-optimisation.git) on GitHub.
 1. Use git to copy/clone your new repository to your local system.
 1. Install [npm](https://docs.npmjs.com/getting-started/installing-node) if not already in use.
 1. Install [gulp.js](http://gulpjs.com/) if not already in use.
