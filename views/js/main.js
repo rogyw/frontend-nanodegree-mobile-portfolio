@@ -15,6 +15,11 @@
  * This website randomly generates pizzas.
  */
 
+"use strict";
+
+// set jshint to ignore console, alert, etc
+/* jshint devel: true */
+
 /**
  * @typedef {object} pizzaIngredients Holds the arrays of all possible pizza ingredients.
  *   @property {string[]} pizzaIngredients.meats All possible meats to include on pizza
@@ -515,7 +520,7 @@ function changeSliderLabel(size) {
  * @param {integer} size number representing size of pizza
  */
 function changePizzaSizes(size) {
-  var newwidth;
+  var newWidth;
   switch (size) {
     case "1":
       newWidth = 25;
@@ -540,9 +545,10 @@ function changePizzaSizes(size) {
 
 /**
  * @desc Changes size of all pizzas to size provided
+ * triggered by slider in html
  * @param {integer} size pizza size
  */
-var resizePizzas = function(size) {
+function resizePizzas(size) {
   window.performance.mark("mark_start_resize"); // User Timing API function
 
   changeSliderLabel(size);
@@ -553,7 +559,7 @@ var resizePizzas = function(size) {
   window.performance.measure("measure_pizza_resize", "mark_start_resize", "mark_end_resize");
   var timeToResize = window.performance.getEntriesByName("measure_pizza_resize");
   console.log("Time to resize pizzas: " + timeToResize[0].duration + "ms");
-};
+}
 
 
 /**
