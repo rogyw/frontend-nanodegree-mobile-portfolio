@@ -678,6 +678,9 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("Background Pizza's cols = " + cols + " and rows = " + rows + " total = " + pizzaCount);
 
   // create and add each sliding pizza to the page
+  // Simplify selector by using ID, and move outside of loop (thanks to Udacity reviewer #1)
+  var movingPizzas = document.getElementById("movingPizzas1");
+
   for (var i = 0; i < pizzaCount; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
@@ -686,8 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    //Simplify selector by using ID
-    document.getElementById("movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
   updatePositions();
 });
@@ -730,7 +732,7 @@ function getScreenSize() {
     maxScreenVertical = currentHeight;
   }
 
-  //Build return object value
+  //Build return value object value
   var screenSize = {
     'width': maxScreenHorizontal,
     'height': maxScreenVertical
