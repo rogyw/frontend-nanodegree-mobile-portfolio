@@ -54,9 +54,11 @@ Roger made the following changes:
 1. Changed code loops to remove instances of "Forced Synchronous Layout" by batching DOM read operations and then batching style changes - Avoids thrashing.
 1. Simplified code to reduce complexity of calculations.
 1. Changed the method of selecting elements in DOM from querySelectorAll() to getElementsByClassName() and querySelector to getElementById.
+1. Moved selectors outside of loops when possible
 1. Reduced number of sliding pizza's from 200 down to a calculated value based on anticipated maximum page resolution and screen size. Also checks if window initially covers multiple screens.
 1. Moved sliding pizzas to own layer in CSS
-1. added comments to code and updated README
+1. added comments to code using JSDoc format and updated README
+1. Implemented further changes suggested by Udacity Reviewer 1 - Thanks go to Carlos
 
 ### Provided Reference Links: Optimization Tips and Tricks
 * [Optimizing Performance](https://developers.google.com/web/fundamentals/performance/ "web performance")
