@@ -20,6 +20,7 @@
 // set jshint to ignore console, alert, etc
 /* jshint devel: true */
 
+
 /**
  * @typedef {object} pizzaIngredients Holds the arrays of all possible pizza ingredients.
  *   @property {string[]} pizzaIngredients.meats All possible meats to include on pizza
@@ -160,6 +161,7 @@ String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+
 /**
  * @desc Provides an array of adjectives for the type requested
  * @param {string} x adjective type
@@ -237,6 +239,7 @@ function getAdj(x) {
       return scientific_default;
   }
 }
+
 
 /**
  * @desc Provides an array of nouns for the type requested
@@ -323,6 +326,7 @@ function getNoun(y) {
   }
 }
 
+
 /**
  * @desc types of adjectives for pizza titles
  * @constant
@@ -331,6 +335,7 @@ function getNoun(y) {
  */
 var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];
 
+
 /**
  * @desc types of nouns for pizza titles
  * @constant
@@ -338,6 +343,7 @@ var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic",
  * @default
  */
 var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];
+
 
 /**
  * @desc Generates a new random name for pizza based on provided lists of adjectives and nouns
@@ -354,6 +360,7 @@ function generator(adj, noun) {
   return name;
 }
 
+
 /**
  * @desc Generates a new random name for pizza
  * by randomly selecting lists of adjectives and nouns to use
@@ -365,6 +372,7 @@ function randomName() {
   return generator(adjectives[randomNumberAdj], nouns[randomNumberNoun]);
 }
 
+
 /**
  * @desc Selects a random ingredient from list of meat ingredients
  * @returns{string} random meat ingredient
@@ -373,6 +381,7 @@ var selectRandomMeat = function() {
   var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
   return randomMeat;
 };
+
 
 /**
  * @desc Selects a random ingredient from list of non-meat ingredients
@@ -383,6 +392,7 @@ var selectRandomNonMeat = function() {
   return randomNonMeat;
 };
 
+
 /**
  * @desc Selects a random ingredient from list of cheese ingredients
  * @returns{string} random cheese ingredient
@@ -391,6 +401,7 @@ var selectRandomCheese = function() {
   var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
   return randomCheese;
 };
+
 
 /**
  * @desc Selects a random ingredient from list of sauce ingredients
@@ -401,6 +412,7 @@ var selectRandomSauce = function() {
   return randomSauce;
 };
 
+
 /**
  * @desc Selects a random ingredient from list of crust ingredients
  * @returns{string} random crust ingredient
@@ -410,6 +422,7 @@ var selectRandomCrust = function() {
   return randomCrust;
 };
 
+
 /**
  * @desc Generates a list item element of string provided
  * @param {string} string string to be included in list element
@@ -418,6 +431,7 @@ var selectRandomCrust = function() {
 var ingredientItemizer = function(string) {
   return "<li>" + string + "</li>";
 };
+
 
 /**
  * @desc Generates a list of ingredients for a pizza
@@ -448,6 +462,7 @@ var makeRandomPizza = function() {
   return pizza;
 };
 
+
 /**
  * @desc Generates a DOM element containing a random pizza
  * @param {integer} i unique number for pizza
@@ -477,7 +492,6 @@ var pizzaElementGenerator = function(i) {
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
 
-
   pizzaDescriptionContainer.classList.add("col-md-6");
 
   pizzaName = document.createElement("h4");
@@ -498,19 +512,23 @@ var pizzaElementGenerator = function(i) {
  * @param {integer} size number representing size of pizza
  */
 function changeSliderLabel(size) {
+  var sizeText = "";
+
   switch (size) {
     case "1":
-      document.querySelector("#pizzaSize").innerHTML = "Small";
-      return;
+      sizeText = "Small";
+      break;
     case "2":
-      document.querySelector("#pizzaSize").innerHTML = "Medium";
-      return;
+      sizeText = "Medium";
+      break;
     case "3":
-      document.querySelector("#pizzaSize").innerHTML = "Large";
-      return;
+      sizeText = "Large";
+      break;
     default:
-      console.log("bug in changeSliderLabel");
+      console.log("changeSliderLabel() - Error - invalid size: " + size);
+      return;
   }
+  document.getElementById("pizzaSize").innerHTML = sizeText;
 }
 
 
@@ -581,11 +599,13 @@ window.performance.measure("measure_pizza_generation", "mark_start_generating", 
 var timeToGenerate = window.performance.getEntriesByName("measure_pizza_generation");
 console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "ms");
 
+
 /**
  * @desc frame Iterator for number of times the pizzas in the background have scrolled.
  * Used by updatePositions() to decide when to log the average time per frame
  */
 var frame = 0;
+
 
 /**
  * @desc Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
@@ -599,6 +619,7 @@ function logAverageFrame(times) {
   }
   console.log("Average time to generate last 10 frames: " + sum / 10 + "ms");
 }
+
 
 // The following code for sliding background pizzas was originally pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
@@ -667,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    document.getElementById("movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
